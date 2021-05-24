@@ -1,0 +1,46 @@
+.mat-form-field {
+    margin-top: 16px;
+  }
+
+  .logo{
+    width: 200px;
+}
+
+.stepper{
+  background-image: url("https://www.xmple.com/wallpaper/white-blue-gradient-linear-1920x1080-c2-ffffff-add8e6-a-0-f-14.svg");
+
+}
+
+/*========= Banner =========*/
+.banner{
+	height: 612px;
+	background: url("https://cf.ltkcdn.net/family/images/orig/200821-2121x1414-family.jpg");
+  background-size: 100%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+	padding-top: 230px;
+	box-sizing: border-box;
+}
+
+.banner-block{
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 60px;
+	font-weight: bold;
+	text-align: center;
+}
+h1 p{
+    background-color:white;
+    color: #fff; 
+    display: inline;
+    padding: 0.5rem;
+
+
+}
+.subtitle{
+
+	    background-color:white;
+    color: #fff; 
+    display: inline;
+    padding: 0.5rem;
+}

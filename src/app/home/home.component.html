@@ -1,0 +1,84 @@
+<link rel="stylesheet" href="./home.component.css" type="text/css" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&family=Oswald:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@1,900&family=Raleway:ital,wght@1,700&display=swap" rel="stylesheet">
+
+<form class="form-horizontal" name="myForm" role="form">
+    <img class="logo" src="https://www.bewiser.co.uk/sites/default/files/2019-05/Allianz.jpg" alt="Logo">
+<form [formGroup]="dateRangeForm" (ngSubmit)="onFormSubmit()" >
+
+    <div class="banner">
+        <div class="banner-block">
+            <div style="clear: both">
+            <h1>TRAVEL SAFE </h1>
+            <h2> WITH CONFIDENCE</h2>
+        </div>
+            <br>
+<br>
+<br>
+            <a href="home/#jump_to_here" class="learn-more">GET QUOTE</a>
+            <p class="subtitle" style="font-weight: bold; font-family: 'Oswald', sans-serif; color: black; ">In only 3 simple steps</p>
+        </div>
+    </div>
+<br>
+    <div class="container"><a id="jump_to_here"></a>
+<mat-error *ngIf="dateRangeForm.controls.options.errors?.required">*Where You're Traveling is Required</mat-error>
+<mat-error *ngIf="dateRangeForm.controls.fromDate.errors?.required">*Departure Date is Required</mat-error>
+<mat-error *ngIf="dateRangeForm.controls.toDate.errors?.required">*Return Date is Required</mat-error>
+<mat-error *ngIf="dateRangeForm.controls.birthDate.errors?.required">*Birth Date is Required</mat-error>
+<mat-error *ngIf="dateRangeForm.controls.checkBox.errors?.required">*Confirming your Residency is Required</mat-error>
+</div>
+
+<div class="infoContainer" >
+    <mat-label style="font-weight: bold;">Destination</mat-label>
+    
+<div class="input" >
+
+    <mat-select [(value)]="selected" formControlName="options" [(ngModel)]= Travel  >
+        <mat-option>Choose..</mat-option>
+        <mat-option value="Europe & Mediterranean Countries (Zone 1)">Europe & Mediterranean Countries (Zone 1)</mat-option>
+        <mat-option value="Worldwide excluding USA, CA & Caribbean">Worldwide excluding USA, CA & Caribbean</mat-option>
+        <mat-option value="Worldwide (Zone 3)">Worldwide (Zone 3)</mat-option>
+      </mat-select>
+  </div>
+<br>
+
+<div class="ranges">
+    
+<mat-label style="font-weight: bold;">Travel Dates </mat-label>
+<br>
+  <mat-form-field appearance="fill" >
+    <mat-label>Enter a date range</mat-label>
+    <mat-date-range-input [min]="minDate"  [max]="maxDate" [rangePicker]="picker">
+      <input  matStartDate placeholder="Departure date" formControlName="fromDate" [(ngModel)]= DepartDate>
+      <input  matEndDate placeholder="Return date" formControlName="toDate" [(ngModel)]= ReturnDate>
+    </mat-date-range-input>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+  </mat-form-field>
+<br>
+<mat-label style="font-weight: bold;">BirthDate </mat-label>
+<br>
+<mat-form-field  appearance="fill">
+	<mat-label>Choose a date</mat-label>
+	<input matInput [min]="minimumDate"  [max]="maximumDate" [matDatepicker]="picker2" required formControlName="birthDate" [(ngModel)]= BirthDate  >
+	<mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+	<mat-datepicker #picker2></mat-datepicker>
+</mat-form-field>
+<br>
+</div>
+
+<mat-checkbox required class="example-margin" class="checkbox" formControlName="checkBox" style="font-weight: bold;" >I confirm that I am a resident in Egypt</mat-checkbox>
+<br>
+
+<button mat-raised-button class="btn" (click)='Redirect()'>Calculate My Quote</button>
+</div>
+</form>
+<div class="iframe">
+<div class="embed-responsive embed-responsive-4by3">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/O3GPLUV8Sn4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+<app-footer></app-footer>
+</form>

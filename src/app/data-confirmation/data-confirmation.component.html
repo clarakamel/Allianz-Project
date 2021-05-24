@@ -1,0 +1,191 @@
+<link rel="stylesheet" href="./data-confirmation.component.css" type="text/css" />
+
+
+<div class="container">
+
+  <h1 class="title" style="color: white; font-weight: bold;">Trip Summary</h1>
+<div class="confirm2">
+  <div class="data">
+    <h2 style="color: white;">Destination</h2>
+<p class="data" style="color: white;" >{{From}}</p>
+</div>
+
+
+<div class="data">
+  <h2 style="color: white;">Departure Date</h2>
+  <p style="color: white;"> {{comingDay}}.{{comingMonth}}.{{comingYear}}</p>
+  </div>
+  <div class="data">
+  <h2 style="color: white;">Return Date</h2>
+
+  <p style="color: white;">{{goingDay}}.{{goingMonth}}.{{goingYear}}</p>
+  </div>
+
+</div>
+<button mat-raised-button class="btn" (click)='Redirect()'>Edit Your Trip</button>
+</div>
+
+<!-- <form class="example-form" class="personalContainer">
+<div >
+
+  <p style="font-weight: bold;">Personal Information</p>
+  <div class="confirm2">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Full Name" required>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Middle Name" required>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Last Name" required>
+      </mat-form-field>
+    </div>
+      <br>
+      <div class="confirm2">
+      <mat-form-field appearance="fill">
+        <mat-label>Country</mat-label>
+        <mat-select >
+          <mat-option value="option" >Egypt</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-radio-group aria-label="Gender">
+        <mat-label style="font-weight: bold;">Gender</mat-label>
+        <br>
+        <mat-radio-button value="1" > Male </mat-radio-button>
+<br>
+        <mat-radio-button value="2"> Female </mat-radio-button>
+      </mat-radio-group>
+      </div>
+<br>
+</div>
+<div>
+      <p style="font-weight: bold;">Contact Information</p>
+      <div class="confirm2">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Mobile Number" required>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="E-mail Address" >
+      </mat-form-field>
+      <br>
+      </div>
+    </div>
+    <div>
+      <p style="font-weight: bold;">Travel Information</p>
+      <div class="confirm2">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="National ID Number" required>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Passport Number" required>
+      </mat-form-field>
+    </div>
+    </div>
+      
+    </form> -->
+
+    <div class="form-style-10">
+      <h1>Almost there..<span>Please fill out the below information to get your insurance.</span></h1>
+      <form >
+          <div class="section"><span>1</span>Personal Information</div>
+          <div class="inner-wrap">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Full Name" required name="fullName" [(ngModel)]="fullName" #name1="ngModel">
+            </mat-form-field>
+            <div *ngIf="name1.invalid"
+            class="alert alert-danger">
+          <div *ngIf="name1.errors?.required">
+            Full Name is required.
+          </div>
+          </div>
+              <mat-form-field appearance="fill">
+                <mat-label>Country</mat-label>
+                <mat-select>
+                  <mat-option value="option"  >Egypt</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <br>
+              <mat-radio-group aria-label="Gender" >
+                <mat-label style="font-weight: bold;">Gender</mat-label>
+                <br>
+                <mat-radio-button value="1" > Male </mat-radio-button>
+        <br>
+                <mat-radio-button value="2"> Female </mat-radio-button>
+              </mat-radio-group>
+             
+          </div>
+      
+          <div class="section"><span>2</span>Contact Information</div>
+          <div class="inner-wrap">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Mobile Number" required name="mobileNumber" minlength ="11" maxlength= "11" [(ngModel)]="mobileNumber" [pattern]= "mobNumberPattern" #name4="ngModel">
+            </mat-form-field>
+            <div *ngIf="name4.invalid"
+            class="alert alert-danger">
+          <div *ngIf="name4.errors?.required">
+            Mobile Number is required.
+          </div>
+          <div *ngIf="name4.errors?.pattern">
+            Invalid Mobile Number.
+          </div>
+          <div *ngIf="name4.errors?.minlength">
+            Mobile Number must be 11 characters long.
+          </div>
+          </div>
+            <br>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="E-mail Address" required name= "N3" [(ngModel)]= email [pattern]="emailPattern" #Name3="ngModel" >
+            </mat-form-field>
+            <div *ngIf="Name3.invalid"
+    class="alert alert-danger">
+
+  <div *ngIf="Name3.errors?.required">
+    Email Address is required.
+  </div>
+  <div *ngIf="Name3.errors?.pattern">
+    Invalid E-mail.
+  </div>
+  </div>
+          </div>
+      
+          <div class="section"><span>3</span>Travel Information</div>
+              <div class="inner-wrap">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="National ID Number" required name="nationalID" [(ngModel)]="nationalID" minlength="14" #name="ngModel">
+                </mat-form-field>
+                <div *ngIf="name.invalid"
+    class="alert alert-danger">
+
+  <div *ngIf="name.errors?.required">
+    National ID Number is required.
+  </div>
+  <div *ngIf="name.errors?.minlength">
+    National ID Number must be at least 14 characters long.
+  </div>
+  </div>
+                <br>
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Passport Number" required name="passportNumber" [(ngModel)]="passportNumber" #name3="ngModel">
+                </mat-form-field>
+                <div *ngIf="name3.invalid"
+                class="alert alert-danger">
+              <div *ngIf="name3.errors?.required">
+                Passport Number is required.
+              </div>
+              </div>
+          </div>
+          <!-- <div class="button-section">
+         
+           <span class="privacy-policy">
+           <input type="checkbox" name="field7">You agree to our Terms and Policy. 
+           </span>
+          </div> -->
+      </form>
+      </div>

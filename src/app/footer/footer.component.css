@@ -1,0 +1,54 @@
+.page-footer {
+    margin-top: 100px;
+
+}
+
+.footer-col {
+	width: 25%;
+	float: left;
+}
+.page-footer h3 {
+	font-size: 13px;
+	text-transform: uppercase;
+}
+.page-footer h3::after {
+	content: '.';
+	font-size: 0;
+	width: 90%;
+	height: 1px;
+	background: #292929;
+	display: block;
+	margin: 15px 0;
+}
+.page-footer li {
+	font-size: 13px;
+	color: #145c9e;
+	line-height: 1.6;
+}
+.page-footer li:hover {
+	color:black;
+	cursor: pointer;
+}
+.copy {
+	color: #145c9e;
+    margin-top: 32px;
+    margin-left: 30px;
+}
+.social a {
+	display: block;
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	background:#145c9e;
+	color: #fff;
+	text-align: center;
+	line-height: 44px;
+}
+.social a:hover {
+	background: #fff;
+    color: blue;
+}
+.social li {
+    display: inline-block;
+    
+}

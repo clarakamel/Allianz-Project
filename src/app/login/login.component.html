@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="./login.component.css" type="text/css" />
+
+
+
+<div style="background-color: #FBEEC1;">
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <app-carousel></app-carousel>
+  <mat-card class="box"  >
+<br>
+<form class="example-form"  >
+  <img class="img-responsive" src="https://www.allianz.com/en/press/news/business/insurance/140930-allianz-and-bmw-group-expand-global-cooperation/_jcr_content/root/article_metadata/image.img.gif/1538469146931/logo-allianz.gif">
+<mat-form-field class="example-full-width">
+  <mat-label>Username</mat-label>
+  <input matInput placeholder="Username" required ngModel #Name='ngModel' name= N [(ngModel)]= Username>
+</mat-form-field>
+<div class="alert alert-danger" *ngIf = "!Name.valid" role="alert">
+  Username is required for login
+</div>
+<br>
+<mat-form-field  class="example-full-width">
+  <mat-label>Password</mat-label>
+  <input matInput [type]="hide ? 'password' : 'text'" required ngModel #Name2='ngModel' name= N2 [(ngModel)]= Password>
+  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+  </button>
+</mat-form-field>
+<div class="alert alert-danger" *ngIf = "!Name2.valid" role="alert">
+  Password is required for login
+</div>
+<br>
+<button mat-raised-button style="background-color:#659DBD; width: 100px; margin-left: 45px;" class="btn-block" (click)='Login()'>Login</button>
+<br>
+</form>
+</mat-card>
+</div>
+</div>

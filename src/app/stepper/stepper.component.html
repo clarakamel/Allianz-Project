@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="./stepper.component.css" type="text/css" />
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&family=Oswald:wght@500&display=swap" rel="stylesheet">
+
+<img class="logo" src="https://www.bewiser.co.uk/sites/default/files/2019-05/Allianz.jpg" alt="Logo">
+<div >
+<mat-horizontal-stepper #stepper class="stepper">
+    <mat-step [stepControl]="firstFormGroup" >
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Package Selection</ng-template>
+<app-package-selection></app-package-selection>
+
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" errorMessage="Missing Data.">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Data Confirmation</ng-template>
+        
+        <app-data-confirmation></app-data-confirmation>
+        <mat-checkbox required formControlName="checkBox" >I have filled all the information.</mat-checkbox>
+        <br>
+        <button mat-button matStepperNext>Done</button>
+      
+
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <div class="banner">
+        <div class="banner-block">
+            <h1 style= " font-family: 'Oswald', sans-serif; color: black; font-size: 40px;    background-color:white;
+            
+            display: inline;
+            padding: 0.5rem;">Thank you for choosing Allianz</h1>
+            <br>
+            <br>
+            <br>
+            
+            <p class="subtitle" style=" font-weight: bold; font-family: 'Oswald', sans-serif; color: black; font-size: 30px;">To get you there and back safely</p>
+        </div>
+    </div>
+      <!-- <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div> -->
+    </mat-step>
+  </mat-horizontal-stepper>
+  
+  <app-footer></app-footer>
+</div>
