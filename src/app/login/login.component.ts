@@ -21,15 +21,20 @@ export class LoginComponent implements OnInit {
     
   }
 
+//   Login(){
+
+//     if(this.l.Ulogin(this.Username, this.Password)){
+//       // console.log("success")
+//       this.myRouter.navigate(['/home']);
+//     }
+//     else if(this.l.Ulogin(this.Username, this.Password) == false){
+//       this.openDialog();
+//     }
+// }
+
   Login(){
 
-    if(this.l.Ulogin(this.Username, this.Password)){
-      // console.log("success")
       this.myRouter.navigate(['/home']);
-    }
-    else if(this.l.Ulogin(this.Username, this.Password) == false){
-      this.openDialog();
-    }
 }
 
 openDialog(): void {
